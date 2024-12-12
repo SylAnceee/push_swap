@@ -6,9 +6,12 @@
 /*   By: abreuil <abreuil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 18:19:22 by abreuil           #+#    #+#             */
-/*   Updated: 2024/12/11 18:21:37 by abreuil          ###   ########.fr       */
+/*   Updated: 2024/12/11 18:57:41 by abreuil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
+
 
 void	rotate(t_stack_node **stack)
 {

@@ -10,7 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
+	t_stack_node	*a;
+	t_stack_node	*b;
+
+	a = NULL;
+	b = NULL;
+
+	if (ac == 1 || ac == 2 && av[1][0])
+		return (0);
+	else if (ac == 2)
+	{
+		
+	}
 	return (0);
 }
