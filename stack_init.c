@@ -6,7 +6,7 @@
 /*   By: abreuil <abreuil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 19:18:37 by abreuil           #+#    #+#             */
-/*   Updated: 2024/12/16 18:55:35 by abreuil          ###   ########.fr       */
+/*   Updated: 2024/12/17 22:13:25 by abreuil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,3 +91,5 @@ t_stack_node	*get_cheapest(t_stack_node *stack)
 	}
 	return (NULL);
 }
+
+
