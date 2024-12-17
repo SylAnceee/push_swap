@@ -6,7 +6,7 @@
 /*   By: abreuil <abreuil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 18:57:00 by abreuil           #+#    #+#             */
-/*   Updated: 2024/12/11 19:03:04 by abreuil          ###   ########.fr       */
+/*   Updated: 2024/12/16 16:02:01 by abreuil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,58 +19,81 @@ int		is_separator(char c, char sep)
 	return (0);
 }
 
-int		count_words(char *str, char c)
+size_t	count_words(char *str, char c)
 {
 	int		i;
-	int		count;
+	size_t	count;
+	bool	in_word;
 
 	i = 0;
 	count = 0;
 	while (str[i])
 	{
-		if (!is_separator(str[i], c))
-		{
-			count++;
-			while (str[i] && !is_separator(str[i], c))
-				i++;
-		}
-		else
+		in_word = false;
+		while (is_separator(str[i], c))
 			i++;
+		while (str[i] && !is_separator(str[i], c))
+		{
+			if (!in_word)
+			{
+				in_word = true;
+				count++;
+			}
+		}
+		i++;
 	}
 	return (count);
 }
 
 char	*get_next_word(char *str, char c)
 {
-	int		i;
-	char	*word;
-
+	static int	pointer;
+	int			i;
+	size_t		len;
+	char		*word;
+	
+	len = 0;
+	pointer = 0;
 	i = 0;
-	while (str[i] && is_separator(str[i], c))
-		i++;
-	while (str[i] && !is_separator(str[i], c))
-		i++;
-	word = malloc(sizeof(char) * (i + 1));
+	while (is_separator(str[pointer], c))
+		pointer++;
+	while (str[pointer + len] && !is_separator(str[pointer + len], c))
+		len++;
+	word = malloc(sizeof(char) * (len + 1));
 	if (!word)
 		return (NULL);
-	i = 0;
-	while (str[i] && !is_separator(str[i], c))
+	while (str[pointer] && !is_separator(str[pointer], c))
 	{
-		word[i] = str[i];
+		word[i] = str[cursor];
 		i++;
 	}
 	word[i] = '\0';
 	return (word);
 }
 
-char	ft_split_diff(char *str, char c)
+char	**ft_split_diff(char *str, char c)
 {
 	char	**tab;
 	int		i;
-	int		count;
-	int		j;
+	size_t		count;
 	
-	j = 0;
 	i = 0;
-
+	count = count_words(str, c);
+	tab = malloc(sizeof(char *) * (count + 1));
+	if (!tab)
+		return (NULL);
+	while (count >= 0)
+	{
+		if (i == 0)
+		{
+			tab[i] = malloc(sizeof(char) * (count + 1));
+			if (!tab[i])
+				return (NULL);
+			tab[i][0] = '\0';
+			continue ;
+		}
+		tab[i] = get_next_word(str, c);
+	}
+	tab[i] = NULL;
+	return (tab);
 }

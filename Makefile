@@ -1,7 +1,7 @@
 # Variables
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = main.c push.c swap.c reverse_rotate.c rotate.c
+SRCS = main.c push.c swap.c reverse_rotate.c rotate.c ft_split_diff.c
 OBJS = $(SRCS:.c=.o)
 NAME = push_swap
 

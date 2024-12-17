@@ -6,7 +6,7 @@
 /*   By: abreuil <abreuil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:13:07 by abreuil           #+#    #+#             */
-/*   Updated: 2024/12/11 19:01:22 by abreuil          ###   ########.fr       */
+/*   Updated: 2024/12/16 17:03:45 by abreuil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_stack_node
 	int		nbr;
 	int		index;
 	int		push_cost;
-	bool 	above;
+	bool 	above_median;
 	bool 	cheapest;
 
 	struct s_stack_node	*next;
@@ -34,11 +34,11 @@ typedef struct s_stack_node
 // Handle errors
 
 //Stack intiation
-
+char 	**ft_split_diff(char *str, char c);
 //Nodes initiation
 
 //stack utils
-char 	**ft_split_diff(char *str, char c);
+
 //Commands
 void	push(t_stack *src, t_stack *dst);
 void 	pa(t_stack *a, t_stack *b);
