@@ -6,7 +6,7 @@
 /*   By: abreuil <abreuil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 19:18:37 by abreuil           #+#    #+#             */
-/*   Updated: 2024/12/17 22:13:25 by abreuil          ###   ########.fr       */
+/*   Updated: 2024/12/18 10:46:43 by abreuil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,23 @@ t_stack_node	*get_cheapest(t_stack_node *stack)
 	return (NULL);
 }
 
-
+void	prep_for_push(t_stack_node **stack, t_stack_node *top_node, char stack_name)
+{
+	while (*stack != top_node)
+	{
+		if (stack_name == 'a')
+		{
+\			if (top_node -> above_median)
+				ra(stack, false);
+			else
+			rra(stack, false);
+		}	
+		else if (stack_name == 'b')
+		{
+			if (top_node -> above_median)
+				rb(stack, false);
+			else
+				rrb(stack, flase);
+		}
+	}
+}
